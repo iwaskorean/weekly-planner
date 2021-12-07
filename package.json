@@ -1,0 +1,31 @@
+{
+  "name": "weekly-planner",
+  "version": "1.0.0",
+  "main": "index.tsx",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --progress",
+    "build": "NODE_ENV=production webpack --progress"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "@types/webpack-dev-server": "^4.5.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "fork-ts-checker-webpack-plugin": "^6.5.0",
+    "html-webpack-plugin": "^5.5.0",
+    "ts-loader": "^9.2.6",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.2",
+    "webpack": "^5.65.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.6.0",
+    "webpack-server": "^0.1.2"
+  }
+}
