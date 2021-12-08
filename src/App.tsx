@@ -1,5 +1,10 @@
-import Test from './Test';
+import { Global } from '@emotion/react';
+import { globalStyle } from './styles/GlobalStyle';
 
 export default function App() {
-  return <Test />;
+  return (
+    <>
+      <Global styles={globalStyle} />
+    </>
+  );
 }
