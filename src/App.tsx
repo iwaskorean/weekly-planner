@@ -7,7 +7,6 @@ export default function App() {
     <>
       <Global styles={globalStyle} />
       <Header />
-      <h1>SCHEDULE AND EVENTS</h1>
     </>
   );
 }

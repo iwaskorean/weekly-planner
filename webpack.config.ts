@@ -27,6 +27,10 @@ module.exports = {
         exclude: /node_modules/,
         use: ['ts-loader'],
       },
+      {
+        test: /\.svg?$/,
+        use: ['file-loader'],
+      },
     ],
   },
   resolve: {
