@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
 import { ButtonHTMLAttributes } from 'react';
-import temp from '../../assets/arrow-button.svg';
+import arrowButton from '@assets/arrow-button.svg';
+import styled from '@emotion/styled';
 
 interface ArrowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   direction: 'left' | 'right';
@@ -9,7 +9,7 @@ interface ArrowButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 export default function ArrowButton({ direction, ...props }: ArrowButtonProps) {
   return (
     <Button {...props}>
-      <Image direction={direction} src={temp} />
+      <Image direction={direction} src={arrowButton} />
     </Button>
   );
 }

@@ -1,5 +1,5 @@
-import { PropsWithChildren, TextareaHTMLAttributes } from 'react';
-import binder from '../../assets/binder-clip.svg';
+import { TextareaHTMLAttributes } from 'react';
+import binder from '@assets/binder-clip.svg';
 import styled from '@emotion/styled';
 
 interface NoteFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {

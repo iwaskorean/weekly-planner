@@ -1,8 +1,8 @@
-import Header from './components/Header/Header';
-import EventsLayout from './layouts/EventsLayout';
-import NotesLayout from './layouts/NotesLayout';
+import Header from '@components/Header/Header';
+import EventsLayout from '@layouts/EventsLayout';
+import NotesLayout from '@layouts/NotesLayout';
+import { globalStyle } from '@styles/GlobalStyle';
 import { Global } from '@emotion/react';
-import { globalStyle } from './styles/GlobalStyle';
 
 export default function App() {
   return (

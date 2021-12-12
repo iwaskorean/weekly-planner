@@ -1,8 +1,8 @@
-import Grid from '../components/Layout/Grid';
-import Box from '../components/Layout/Box';
-import ButtonBox from '../components/Layout/ButtonBox';
-import ArrowButton from '../components/Button/ArrowButton';
-import NoteField from '../components/TextField/NoteField';
+import Grid from '@components/Layout/Grid';
+import Box from '@components/Layout/Box';
+import ButtonBox from '@components/Layout/ButtonBox';
+import ArrowButton from '@components/Button/ArrowButton';
+import NoteField from '@components/TextField/NoteField';
 
 export default function NotesLayout() {
   return (

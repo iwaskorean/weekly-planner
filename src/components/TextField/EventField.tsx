@@ -1,8 +1,7 @@
-import { PropsWithChildren, TextareaHTMLAttributes } from 'react';
+import { TextareaHTMLAttributes } from 'react';
 import styled from '@emotion/styled';
 
-interface EventFieldProps
-  extends PropsWithChildren<TextareaHTMLAttributes<HTMLTextAreaElement>> {
+interface EventFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   day: string;
 }
 

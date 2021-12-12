@@ -1,14 +1,13 @@
+import { HTMLAttributes, PropsWithChildren } from 'react';
 import styled from '@emotion/styled';
 
-interface DateProps {
-  children: string;
-}
+interface DateProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {}
 
 export default function Date({ children }: DateProps) {
   return (
     <Container>
       <Text>{children}: </Text>
-      <Input type='text' />
+      <Input type='number' min='1' max={children === 'Month' ? '12' : '5'} />
     </Container>
   );
 }
