@@ -21,6 +21,7 @@ export default function NoteField({ label, ...props }: NoteFieldProps) {
 const Container = styled.div`
   position: relative;
   width: 90%;
+  height: 80%;
   margin: 4rem 0 0.5rem 0;
 `;
 
@@ -48,8 +49,7 @@ const Label = styled.h2`
 
 const TextField = styled.textarea`
   width: 100%;
-  height: 22rem;
-
+  height: 90%;
   font-size: 1.2rem;
   padding: 6rem 1rem;
   resize: none;

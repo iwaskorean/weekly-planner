@@ -10,7 +10,11 @@ import ArrowButton from '@components/Button/ArrowButton';
 const daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'];
 const weekend = ['Sat', 'Sun'];
 
-export default function EventsLayout() {
+export interface LayoutProps {
+  handleLayout(): void;
+}
+
+export default function EventsLayout({ handleLayout }: LayoutProps) {
   return (
     <>
       <Grid buttonPosition='left'>
@@ -31,7 +35,7 @@ export default function EventsLayout() {
           <NoteField label='Note' />
         </Box>
         <ButtonBox>
-          <ArrowButton direction='right' />
+          <ArrowButton direction='right' onClick={() => handleLayout()} />
         </ButtonBox>
       </Grid>
     </>

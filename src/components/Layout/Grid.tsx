@@ -16,4 +16,5 @@ const Wrapper = styled.div<{ buttonPosition: 'left' | 'right' }>`
   grid-template-columns: ${({ buttonPosition }) =>
     buttonPosition === 'right' ? '8rem 1fr 1fr' : '1fr 1fr 8rem'};
   gap: 0.2rem;
+  align-items: center;
 `;

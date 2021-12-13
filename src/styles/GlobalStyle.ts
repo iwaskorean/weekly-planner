@@ -6,8 +6,8 @@ export const globalStyle = css`
 
   :root {
     --font-weight-light: 300;
-    --font-weight-regular: 600;
-    --font-weight-bold: 800;
+    --font-weight-regular: 400;
+    --font-weight-bold: 700;
 
     // color
     --light-blue: #ddebf8;
@@ -24,7 +24,6 @@ export const globalStyle = css`
   }
 
   html {
-    min-height: 100vh;
     font-family: 'Rajdhani', 'Noto Sans KR', sans-serif;
     font-size: 16px;
   }
@@ -37,6 +36,6 @@ export const globalStyle = css`
         transparent 1.3px
       ),
       linear-gradient(to bottom, #bbbbbb 1.3px, transparent 1.3px);
-    overflow: hidden;
   }
+  overflow-x: hidden;
 `;
