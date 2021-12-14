@@ -1,13 +1,34 @@
-import { HTMLAttributes, PropsWithChildren } from 'react';
+import { InputHTMLAttributes, useEffect, useState } from 'react';
 import styled from '@emotion/styled';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
-interface DateProps extends PropsWithChildren<HTMLAttributes<HTMLDivElement>> {}
+interface DateProps extends InputHTMLAttributes<HTMLInputElement> {
+  children: string;
+}
 
-export default function Date({ children }: DateProps) {
+export default function Date({ children, ...props }: DateProps) {
+  const [num, setNum] = useLocalStorage('date', children);
+
+  useEffect(() => {
+    const obj = JSON.parse(localStorage.getItem('date') as string);
+    const date = {
+      ...obj,
+      [children]: num,
+    };
+    localStorage.setItem('date', JSON.stringify(date));
+  }, [num]);
+
   return (
     <Container>
       <Text>{children}: </Text>
-      <Input type='number' min='1' max={children === 'Month' ? '12' : '5'} />
+      <Input
+        type='number'
+        value={num}
+        onChange={({ target }) => setNum(target.value)}
+        min='1'
+        max={children === 'Month' ? '12' : '5'}
+        {...props}
+      />
     </Container>
   );
 }

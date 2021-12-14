@@ -1,19 +1,33 @@
-import { TextareaHTMLAttributes } from 'react';
+import { TextareaHTMLAttributes, useEffect, useState } from 'react';
 import binder from '@assets/binder-clip.svg';
 import styled from '@emotion/styled';
+import {
+  saveToLocalStorage,
+  useLocalStorage,
+} from '../../hooks/useLocalStorage';
 
 interface NoteFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
 }
 
 export default function NoteField({ label, ...props }: NoteFieldProps) {
+  const [content, setContent] = useLocalStorage('notes', label);
+
   return (
     <Container>
       <ImageBox>
         <Image src={binder} />
       </ImageBox>
       <Label>{label}</Label>
-      <TextField {...props}></TextField>
+      <TextField
+        value={content || ''}
+        onChange={({ target }) => setContent(target.value)}
+        {...props}
+      />
+      {/* <button onClick={() => handleConfirm()}>confirm</button> */}
+      <button onClick={() => saveToLocalStorage('notes', label, content)}>
+        confirm
+      </button>
     </Container>
   );
 }
@@ -51,7 +65,7 @@ const TextField = styled.textarea`
   width: 100%;
   height: 90%;
   font-size: 1.2rem;
-  padding: 6rem 1rem;
+  padding: 7rem 1rem;
   resize: none;
   background: var(--light-yellow);
   border: none;
