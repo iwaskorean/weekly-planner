@@ -9,12 +9,14 @@ export const globalStyle = css`
     --font-weight-regular: 400;
     --font-weight-bold: 700;
 
-    // color
     --light-blue: #ddebf8;
     --light-red: #f8d9d9;
     --light-yellow: #fffae8;
     --white: #ffffff;
     --black: #373737;
+
+    --tablet-width: 800px;
+    --mobile-width: 425px;
   }
 
   * {
@@ -23,12 +25,21 @@ export const globalStyle = css`
     margin: 0;
   }
 
-  html {
+  html,
+  button,
+  input {
     font-family: 'Rajdhani', 'Noto Sans KR', sans-serif;
     font-size: 16px;
+    @media (max-width: var(--tablet-width)) {
+      font-size: 14px;
+    }
+    @media (max-width: var(--mobile-width)) {
+      font-size: 12px;
+    }
   }
 
   body {
+    width: 100%;
     background-size: 30px 30px;
     background-image: linear-gradient(
         to right,
@@ -36,6 +47,6 @@ export const globalStyle = css`
         transparent 1.3px
       ),
       linear-gradient(to bottom, #bbbbbb 1.3px, transparent 1.3px);
+    overflow-x: hidden;
   }
-  overflow-x: hidden;
 `;

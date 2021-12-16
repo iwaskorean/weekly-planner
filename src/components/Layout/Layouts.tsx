@@ -21,4 +21,8 @@ const Wrapper = styled.div<{ active: boolean }>`
   transform: translateX(${({ active }) => (active ? '-100%' : '0%')});
   transition: transform 0.5s ease-in-out;
   margin: 3rem 0;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    tranform: none;
+  }
 `;

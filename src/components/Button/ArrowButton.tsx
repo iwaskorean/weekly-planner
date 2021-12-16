@@ -32,4 +32,7 @@ const Image = styled.img<{ direction: 'left' | 'right' }>`
     opacity: 0.5;
     transform: rotate(var(--rotation)) translateY(-20%);
   }
+  @media (max-width: 800px) {
+    display: none;
+  }
 `;

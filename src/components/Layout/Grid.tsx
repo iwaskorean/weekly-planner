@@ -17,4 +17,8 @@ const Wrapper = styled.div<{ buttonPosition: 'left' | 'right' }>`
     buttonPosition === 'right' ? '8rem 1fr 1fr' : '1fr 1fr 8rem'};
   gap: 0.2rem;
   align-items: center;
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+  }
 `;

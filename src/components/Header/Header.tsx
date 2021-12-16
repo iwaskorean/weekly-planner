@@ -23,6 +23,11 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   box-shadow: 3px 0px 15px #8a8a8a;
+  @media (max-width: 425px) {
+    display: block;
+    padding: 0.2rem 0.5rem;
+    text-align: center;
+  }
 `;
 
 const Group = styled.div`
@@ -30,4 +35,7 @@ const Group = styled.div`
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
+  @media (max-width: 425px) {
+    align-items: center;
+  }
 `;

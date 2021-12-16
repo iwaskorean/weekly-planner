@@ -15,7 +15,7 @@ export default function NotesLayout({ handleLayout }: LayoutProps) {
         <NoteField label='TO DO LIST' />
       </Box>
       <Box>
-        <NoteField label='THINGS TO PREPARE FOR NEXT WEEK' />
+        <NoteField label='FOR NEXT WEEK' />
       </Box>
     </Grid>
   );
