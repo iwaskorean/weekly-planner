@@ -1,10 +1,11 @@
-import { TextareaHTMLAttributes, useEffect, useState } from 'react';
+import { TextareaHTMLAttributes } from 'react';
 import binder from '@assets/binder-clip.svg';
-import styled from '@emotion/styled';
 import {
   saveToLocalStorage,
   useLocalStorage,
 } from '../../hooks/useLocalStorage';
+import Button from '@components/Button/Button';
+import styled from '@emotion/styled';
 
 interface NoteFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
@@ -12,6 +13,8 @@ interface NoteFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 export default function NoteField({ label, ...props }: NoteFieldProps) {
   const [content, setContent] = useLocalStorage('notes', label);
+
+  console.log('notes render');
 
   return (
     <Container>
@@ -24,10 +27,9 @@ export default function NoteField({ label, ...props }: NoteFieldProps) {
         onChange={({ target }) => setContent(target.value)}
         {...props}
       />
-      {/* <button onClick={() => handleConfirm()}>confirm</button> */}
-      <button onClick={() => saveToLocalStorage('notes', label, content)}>
-        confirm
-      </button>
+      <Button onClick={() => saveToLocalStorage('notes', label, content)}>
+        Save
+      </Button>
     </Container>
   );
 }
@@ -71,4 +73,7 @@ const TextField = styled.textarea`
   border: none;
   border-radius: 0.5rem;
   outline-color: #bf9200;
+  &:focus + button {
+    display: block;
+  }
 `;

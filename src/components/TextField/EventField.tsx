@@ -1,9 +1,10 @@
-import { TextareaHTMLAttributes, useEffect, useState } from 'react';
-import styled from '@emotion/styled';
+import { TextareaHTMLAttributes } from 'react';
 import {
   saveToLocalStorage,
   useLocalStorage,
 } from '../../hooks/useLocalStorage';
+import Button from '@components/Button/Button';
+import styled from '@emotion/styled';
 
 interface EventFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   day: string;
@@ -11,6 +12,8 @@ interface EventFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 
 export default function EventField({ day, ...props }: EventFieldProps) {
   const [content, setContent] = useLocalStorage('events', day);
+
+  console.log('events render');
 
   return (
     <Container>
@@ -20,11 +23,10 @@ export default function EventField({ day, ...props }: EventFieldProps) {
         onChange={({ target }) => setContent(target.value)}
         day={day}
         {...props}
-      ></TextField>
-      {/* <button onClick={() => handleConfirm()}>confirm</button> */}
-      <button onClick={() => saveToLocalStorage('events', day, content)}>
-        confirm
-      </button>
+      />
+      <Button onClick={() => saveToLocalStorage('events', day, content)}>
+        Save
+      </Button>
     </Container>
   );
 }
@@ -57,6 +59,9 @@ const TextField = styled.textarea<{ day: string }>`
     background: var(--light-red); 
     outline-color: #d00000;
     `}
+  &:focus + button {
+    display: block;
+  }
 `;
 
 const Label = styled.h3`
