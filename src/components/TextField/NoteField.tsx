@@ -1,4 +1,4 @@
-import { TextareaHTMLAttributes } from 'react';
+import React, { TextareaHTMLAttributes } from 'react';
 import binder from '@assets/binder-clip.svg';
 import {
   saveToLocalStorage,
@@ -11,10 +11,11 @@ interface NoteFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
 }
 
-export default function NoteField({ label, ...props }: NoteFieldProps) {
+export default React.memo(function NoteField({
+  label,
+  ...props
+}: NoteFieldProps) {
   const [content, setContent] = useLocalStorage('notes', label);
-
-  console.log('notes render');
 
   return (
     <Container>
@@ -32,7 +33,7 @@ export default function NoteField({ label, ...props }: NoteFieldProps) {
       </Button>
     </Container>
   );
-}
+});
 
 const Container = styled.div`
   position: relative;

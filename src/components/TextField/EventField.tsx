@@ -1,4 +1,4 @@
-import { TextareaHTMLAttributes } from 'react';
+import React, { TextareaHTMLAttributes } from 'react';
 import {
   saveToLocalStorage,
   useLocalStorage,
@@ -10,10 +10,11 @@ interface EventFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   day: string;
 }
 
-export default function EventField({ day, ...props }: EventFieldProps) {
+export default React.memo(function EventField({
+  day,
+  ...props
+}: EventFieldProps) {
   const [content, setContent] = useLocalStorage('events', day);
-
-  console.log('events render');
 
   return (
     <Container>
@@ -29,7 +30,7 @@ export default function EventField({ day, ...props }: EventFieldProps) {
       </Button>
     </Container>
   );
-}
+});
 
 const Container = styled.div`
   position: relative;
