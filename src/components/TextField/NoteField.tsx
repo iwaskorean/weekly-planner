@@ -1,10 +1,10 @@
-import React, { TextareaHTMLAttributes } from 'react';
-import binder from '@assets/binder-clip.svg';
+import React, { TextareaHTMLAttributes, useRef } from 'react';
 import {
   saveToLocalStorage,
   useLocalStorage,
 } from '../../hooks/useLocalStorage';
 import Button from '@components/Button/Button';
+import binder from '@assets/binder-clip.svg';
 import styled from '@emotion/styled';
 
 interface NoteFieldProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
@@ -16,6 +16,14 @@ export default React.memo(function NoteField({
   ...props
 }: NoteFieldProps) {
   const [content, setContent] = useLocalStorage('notes', label);
+  const ref = useRef<HTMLTextAreaElement>(null);
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey && ref.current) {
+      saveToLocalStorage('notes', label, content);
+      ref.current.blur();
+    }
+  };
 
   return (
     <Container>
@@ -26,6 +34,8 @@ export default React.memo(function NoteField({
       <TextField
         value={content || ''}
         onChange={({ target }) => setContent(target.value)}
+        onKeyPress={handleKeyPress}
+        ref={ref}
         {...props}
       />
       <Button onClick={() => saveToLocalStorage('notes', label, content)}>

@@ -1,4 +1,4 @@
-import React, { TextareaHTMLAttributes } from 'react';
+import React, { TextareaHTMLAttributes, useRef } from 'react';
 import {
   saveToLocalStorage,
   useLocalStorage,
@@ -15,6 +15,14 @@ export default React.memo(function EventField({
   ...props
 }: EventFieldProps) {
   const [content, setContent] = useLocalStorage('events', day);
+  const ref = useRef<HTMLTextAreaElement>(null);
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey && ref.current) {
+      saveToLocalStorage('events', day, content);
+      ref.current.blur();
+    }
+  };
 
   return (
     <Container>
@@ -23,6 +31,8 @@ export default React.memo(function EventField({
         value={content}
         onChange={({ target }) => setContent(target.value)}
         day={day}
+        onKeyPress={handleKeyPress}
+        ref={ref}
         {...props}
       />
       <Button onClick={() => saveToLocalStorage('events', day, content)}>
