@@ -24,5 +24,6 @@ const Wrapper = styled.div<{ active: boolean }>`
   @media (max-width: 800px) {
     grid-template-columns: 1fr;
     tranform: none;
+    overflow-y: scroll;
   }
 `;

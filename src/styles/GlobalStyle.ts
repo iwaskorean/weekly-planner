@@ -17,6 +17,8 @@ export const globalStyle = css`
 
     --tablet-width: 800px;
     --mobile-width: 425px;
+
+    --box-shadow: 3px 0px 15px #8a8a8a;
   }
 
   * {
