@@ -1,14 +1,13 @@
-import styled from '@emotion/styled';
 import Logo from './Logo';
-import Date from './Date';
+import WeekField from './WeekField';
+import styled from '@emotion/styled';
 
 export default function Header() {
   return (
     <Container>
       <Logo />
       <Group>
-        <Date>Month</Date>
-        <Date>Week</Date>
+        <WeekField />
       </Group>
     </Container>
   );
@@ -22,7 +21,7 @@ const Container = styled.header`
   background-color: var(--white);
   align-items: center;
   justify-content: space-between;
-  box-shadow: 3px 0px 15px #8a8a8a;
+  box-shadow: var(--box-shadow);
   @media (max-width: 425px) {
     display: block;
     padding: 0.2rem 0.5rem;
